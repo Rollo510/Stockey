@@ -1,0 +1,10 @@
+<h1>Create a new List here.  Name the List, and then add a Stock to it.</h1>
+
+<form method="post" action="/lists">
+<label for="lists">
+<p>Company Name: <input type="text" id="name" name="name" placeholder="Enter the Company's name"></p>
+<p>Ticker: <input type="text" id="ticker_symbol" name="ticker_symbol" placeholder="Company's ticker symbol" required></p>
+<p>Current Price: <input type="number" min="0" step=".01" id="current_price" name="current_price" placeholder="Current price per share" required>
+<input type="submit" value="Submit New List">
+
+</form>

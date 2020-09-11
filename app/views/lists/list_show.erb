@@ -1,0 +1,13 @@
+<h1> Here is your list's content.</h1>
+
+<h2> <%= @list.name %> </h2><br>
+<div> <% @list.stocks.each do |stock| %> </div>
+    <li> <%= stock.name %> </li>
+    <li> <%= stock.ticker_symbol %> </li>
+    <li> <%= stock.current_price %> </li>
+<% end %>
+
+<form method="POST" action="/lists/<%=@list.id%>"> 
+<input id="hidden" type="hidden" name="_method" value="DELETE">
+<input type="submit" value="delete">
+</form>

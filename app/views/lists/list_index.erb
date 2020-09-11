@@ -1,0 +1,5 @@
+<h1>Here are <%=current_user.username%>'s lists:</h1>
+
+<% @lists.each do |list| %>
+<a href="/lists/<%=list.id%>"><%=list.name%> </a>
+<% end %>
