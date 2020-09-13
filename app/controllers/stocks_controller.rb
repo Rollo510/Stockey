@@ -1,8 +1,8 @@
 class StocksController < ApplicationController
 
-  # GET: /stocks
   get "/stocks" do
-    erb :"/stocks/index.html"
+    @stocks = current_user.stocks
+    erb :"/stocks/index"
   end
 
   # GET: /stocks/new

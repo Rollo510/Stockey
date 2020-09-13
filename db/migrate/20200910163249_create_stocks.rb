@@ -2,9 +2,10 @@ class CreateStocks < ActiveRecord::Migration
 
   def change
     create_table :stocks do |t|
-      t.string :name #company_name
+      t.string :name
       t.string :ticker_symbol
-      t.real :current_price
+      t.string :category
+      t.float :price
       t.timestamps null: false
     end
   end

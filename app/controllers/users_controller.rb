@@ -1,37 +1,40 @@
 class UsersController < ApplicationController
 
-  # GET: /users
-  get "/users" do
-    erb :"/users/index.html"
-  end
+	get "/users/signup" do
+		erb :'users/signup'
+	end
 
-  # GET: /users/new
-  get "/users/new" do
-    erb :"/users/new.html"
-  end
+	get '/users/login' do
+		erb :'users/login'
+	end
 
-  # POST: /users
-  post "/users" do
-    redirect "/users"
-  end
+	post "/users/signup" do
+		user = User.new(username:params[:username], email:params[:email], password:params[:password])
+		if user.valid? && user.save
+			session[:user_id] = user.id
+			redirect to '/stocks'
+		else
+			redirect to '/failure'
+		end
+	end
 
-  # GET: /users/5
-  get "/users/:id" do
-    erb :"/users/show.html"
-  end
+	post "/users/login" do
+		user = User.find_by(username: params[:username])
+		if user && user.authenticate(params[:password])
+			session[:user_id] = user.id
+			redirect to '/stocks'
+		else
+			redirect to '/failure'
+		end
+	end
 
-  # GET: /users/5/edit
-  get "/users/:id/edit" do
-    erb :"/users/edit.html"
-  end
+	get "/failure" do
+		erb :'/users/failure'  #todo: build failure page in Users
+	end
 
-  # PATCH: /users/5
-  patch "/users/:id" do
-    redirect "/users/:id"
-  end
+	get "/logout" do 
+		session.clear
+		redirect to "/"
+	end
 
-  # DELETE: /users/5/delete
-  delete "/users/:id/delete" do
-    redirect "/users"
-  end
 end

@@ -1,4 +1,7 @@
 class Stock < ActiveRecord::Base
-    belongs_to :list
-    belongs_to :user
+    has_many :owned_stocks
+    has_many :users, through: :owned_stocks
 end
+
+
+

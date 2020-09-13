@@ -1,0 +1,13 @@
+<h1>Insert the form to edit an instance of your model here.</h1>
+
+<h1>Insert the form to edit an instance of your model here.</h1>
+
+<form method="post" action="/owned_stocks/<%= @owned_stock.id %>">
+<input id="hidden" type="hidden" name="_method" value="PATCH">
+<label for="owned_stocks">
+<p><%= @owned_stock.name %>: <input type="text" id="name" name="owned_stock[name]" placeholder="Enter the Company's name"></p>
+<p><%= @owned_stock.ticker_symbol %>: <input type="text" id="ticker_symbol" name="owned_stock[ticker_symbol]" placeholder="Edited ticker symbol" required></p>
+<p><%= @owned_stock.current_price %>: <input type="number" min="0" step=".01" id="current_price" name="owned_stock[current_price]" placeholder="Edited price per share" required></p>
+<input type="submit" value="Submit">
+
+</form>

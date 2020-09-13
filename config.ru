@@ -6,6 +6,6 @@ end
 
 use Rack::MethodOverride
 use StocksController
-use ListsController
+use OwnedStocksController
 use UsersController
 run ApplicationController

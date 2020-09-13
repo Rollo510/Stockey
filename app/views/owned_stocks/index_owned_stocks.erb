@@ -1,0 +1,7 @@
+<h1>This is the Model's index page.</h1>
+
+<h1>Here are <%=current_user.username%>'s Stocks:</h1>
+
+<% @owned_stocks.each do |owned_stock| %>
+<a href="/owned_stocks/<%=owned_stock.id%>"><%=owned_stock.name%> </a>
+<% end %>
