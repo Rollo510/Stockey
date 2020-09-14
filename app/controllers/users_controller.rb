@@ -29,7 +29,8 @@ class UsersController < ApplicationController
 	end
 
 	get "/failure" do
-		erb :'/users/failure'  #todo: build failure page in Users
+		# user.errors.full_messages_for(:user_login)
+		erb :'/users/failure'
 	end
 
 	get "/logout" do 

@@ -9,7 +9,7 @@ class ApplicationController < Sinatra::Base
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, "secret_password!"
+    set :session_secret, "TdGGhoB25903DF"
   end
 
   get '/' do
@@ -26,18 +26,6 @@ class ApplicationController < Sinatra::Base
 		end
 	end
   
-
-# User has many stocks through User stocks
-# stocks has many users through user stocks
-# OwnedStocks belongs to user and stock
-
-# user: username email and password
-
-# userstocks user_id stock_id shares JOIN table
-
-# stock has name ticker category price
-# stock should have most logic
-# stock index page
 
 
 

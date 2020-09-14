@@ -15,11 +15,11 @@ get '/owned_stocks' do
     redirect to "/owned_stocks/#{@owned_stock.id}"
   end
 
-  get '/owned_stocks/:id' do
-    id = params[:id]
-    @owned_stock = OwnedStock.find_by(id: id)
-    erb :owned_stock_show
-  end
+  # get '/owned_stocks/:id' do
+  #   id = params[:id]
+  #   @owned_stock = OwnedStock.find_by(id: id)
+  #   erb :owned_stock_show
+  # end
 
   get '/owned_stocks/:id/edit' do
     @owned_stock = OwnedStock.find_by(id: params[:id])
@@ -40,4 +40,17 @@ get '/owned_stocks' do
   end
 
 
-	end
+  post '/owned_stocks/:stock_id' do
+    @owned_stock = OwnedStock.create(user_id: current_user.id, stock_id: params[:stock_id])
+    current_user.reload
+    redirect to '/stocks'
+  end
+
+  # <h1> Add this stock to your portfolio!</h1>
+
+  # <form method="post" action="/owned_stocks/:stock_id"
+  # <input type="submit" 
+
+  
+
+end
