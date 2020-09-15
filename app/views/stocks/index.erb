@@ -1,10 +1,29 @@
-<h1>Here are your stocks!</h1>
+<h1>STOCKEY</h1>
 
-<% @stocks.each do |stock| %>
-<%= stock.name %>
-<% end %><br>
+<p><h4>Create your own stock:</h4></p>
 
-<>
+<div>
+<form method="post" action="/owned_stocks/new">
+<label for="stocks">
+<p>Company Name: <input type="text" id="name" name="name" placeholder="Enter the Company's name"></p>
+<p>Ticker: <input type="text" id="ticker_symbol" name="ticker_symbol" placeholder="Company's ticker symbol"></p>
+<p>Category: <input type="text" id="category" name="category" placeholder="Sector of Market" required></p>
+<p>Current Price: <input type="number" min="0" step=".01" id="price" name="price" placeholder="Current price per share">
+<input type="submit" value="Create New Stock">
+</form>
+</div>
+<br>
 
+<h4> Or choose from some recommended stocks below: </h4><br>
+<% @all_stocks.each do |stock| %>
+    <li>
+    <b>Stock Name: </b><a href='/stocks/<%=stock.id%>'><%= stock.name %></a><br>
+    <p>Ticker Symbol: <a href='/stocks/<%=stock.id%>'><%= stock.ticker_symbol%></a>
+    Stock Category: <a href='/stocks/<%=stock.id%>'><%= stock.category%></a>
+    Current Stock Price: <%= stock.price %> </p>
+    </li>
+    <br>
+<% end %>
 
+<br>
 <a href="/logout">Logout</a>

@@ -1,8 +1,13 @@
 class StocksController < ApplicationController
 
   get "/stocks" do
-    @stocks = current_user.stocks
-    erb :"/stocks/index"
+    if logged_in?
+      @stocks = current_user.stocks
+      @all_stocks = Stock.all
+      erb :"/stocks/index"
+    else
+      redirect to '/failure'
+    end
   end
 
   # GET: /stocks/new
@@ -15,9 +20,13 @@ class StocksController < ApplicationController
     redirect "/stocks"
   end
 
-  # GET: /stocks/5
-  get "/stocks/:id" do
-    erb :"/stocks/show.html"
+  get '/stocks/:id' do
+    if logged_in?
+      @stock = Stock.find(params[:id])
+      erb :'stocks/show'
+    else
+      redirect to '/failure'
+    end
   end
 
   # GET: /stocks/5/edit

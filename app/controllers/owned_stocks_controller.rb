@@ -5,15 +5,24 @@ get '/owned_stocks' do
     erb :owned_stock_index
   end
 
-  get '/owned_stocks/new' do
-    erb :new_owned_stock
-  end
+post '/owned_stocks/new' do
+    @new_owned_stock = Stock.create(params)
+    owned_stock = OwnedStock.create(user_id:current_user.id, stock_id:@new_owned_stock.id)
+    erb :'/owned_stocks/show'
+end
 
-  post '/owned_stocks' do
-    attributes = params
-    @owned_stock = OwnedStock.create(attributes)
-    redirect to "/owned_stocks/#{@owned_stock.id}"
-  end
+# get '/owned_stocks/show' do
+#   @new_owned_stock = Stock.last
+#   erb :'owned_stocks/show'
+# end
+
+# get '/owned_stocks/new' do
+#     new_stock = Stock.create(params)
+#     @owned_stock = OwnedStock.create(user_id:current_user.id, stock_id:params[:id])
+#     erb :new_owned_stock
+# end
+
+  
 
   # get '/owned_stocks/:id' do
   #   id = params[:id]

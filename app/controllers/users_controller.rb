@@ -8,6 +8,10 @@ class UsersController < ApplicationController
 		erb :'users/login'
 	end
 
+	get '/users/show' do
+		erb :'users/show'
+	end
+
 	post "/users/signup" do
 		user = User.new(username:params[:username], email:params[:email], password:params[:password])
 		if user.valid? && user.save

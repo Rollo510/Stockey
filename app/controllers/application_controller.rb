@@ -13,7 +13,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :welcome
+    if logged_in?
+      redirect to '/stocks'
+    else
+      erb :welcome
+    end
   end
 
   helpers do
