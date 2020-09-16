@@ -6,3 +6,14 @@
 <%=@owned_stock.stock.name%>'s current price is: $<%=@owned_stock.stock.price%>
 <br>
 <br>
+
+
+
+<form action='/owned_stocks/<%= @owned_stock.id %>/delete' method='post'>
+<input type='hidden' id='hidden' name='_method' value="DELETE">
+<button type='submit'>Delete this stock from your list</button>
+</form>
+
+
+
+

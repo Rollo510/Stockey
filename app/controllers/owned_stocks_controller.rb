@@ -33,30 +33,34 @@ end
     end
   end
 
-  get '/owned_stocks/:id/edit' do
-    @owned_stock = OwnedStock.find_by(id: params[:id])
-    erb :edit_owned_stock
+  # get '/owned_stocks/:id/edit' do
+  #   @owned_stock = OwnedStock.find_by(id: params[:id])
+  #   erb :edit_owned_stock
+  # end
+
+  # patch '/owned_stocks/:id' do
+  #   @owned_stock = OwnedStock.find_by(id: params[:id])
+  #   attributes = params[:owned_stock]
+  #   @owned_stock.update(attributes)
+  #   redirect to "/owned_stocks/#{@owned_stock.id}"
+  # end
+
+  delete '/owned_stocks/:id/delete' do
+    if logged_in?
+      @owned_stock = OwnedStock.find_by(params[:id])
+      @owned_stock.destroy
+      redirect to '/users/show'
+    else
+      redirect to '/failure'
+    end
   end
 
-  patch '/owned_stocks/:id' do
-    @owned_stock = OwnedStock.find_by(id: params[:id])
-    attributes = params[:owned_stock]
-    @owned_stock.update(attributes)
-    redirect to "/owned_stocks/#{@owned_stock.id}"
-  end
 
-  delete '/owned_stocks/:id' do
-    owned_stock = OwnedStock.find_by(id: params[:id])
-    owned_stock.destroy
-    redirect to erb :show
-  end
-
-
-  post '/owned_stocks/:stock_id' do
-    @owned_stock = OwnedStock.create(user_id: current_user.id, stock_id: params[:stock_id])
-    current_user.reload
-    redirect to '/stocks'
-  end
+  # post '/owned_stocks/:stock_id' do
+  #   @owned_stock = OwnedStock.create(user_id: current_user.id, stock_id: params[:stock_id])
+  #   current_user.reload
+  #   redirect to '/stocks'
+  # end
   
 
 end
