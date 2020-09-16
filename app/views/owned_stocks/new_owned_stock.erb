@@ -1,0 +1,12 @@
+<h1> You just added: </h1><br>
+<br>
+<h3> <%=@new_owned_stock.name.upcase%> <h4> <%=@new_owned_stock.ticker_symbol%> </h4> </h3> 
+
+<br>
+This stock belongs to the <%=@new_owned_stock.category%> category, and has a current price of <%=@new_owned_stock.price%> <br>
+<br>
+<a href='/users/show'>Let me see my stocks!</a>
+<br>
+<a href='/stocks'>Back to Main Menu</a>
+<br>
+<a href="/logout">Logout</a>

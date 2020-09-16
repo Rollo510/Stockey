@@ -1,0 +1,24 @@
+<h1>Here are all of the Stocks you own!</h1>
+
+<h2> <%=current_user.username.capitalize%>'s Stocks:</h2>
+<br>
+
+    <% if current_user.owned_stocks.empty? %>
+    <h3> <%="Looks like you havent added any stocks yet..."%> </h3>
+    <% end %>
+<br>
+<li>
+    <li> <% @owned_stocks.each do |owned_stock| %>
+<li>Name:<h3><%=owned_stock.stock.name%></h3></li>
+<li><%=owned_stock.stock.ticker_symbol%></li>
+<li>Current Price: $<%=owned_stock.stock.price%></li>
+<br>
+<br>
+<% end %> </li>
+</li>
+
+<br>
+<a href='/stocks'>Back to Main Menu</a>
+<br>
+<br>
+<a href="/logout">Logout</a>

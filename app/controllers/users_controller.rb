@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 	end
 
 	get '/users/show' do
+		@owned_stocks = current_user.owned_stocks
 		erb :'users/show'
 	end
 
@@ -18,7 +19,8 @@ class UsersController < ApplicationController
 			session[:user_id] = user.id
 			redirect to '/stocks'
 		else
-			redirect to '/failure'
+			@error_message = user.errors.full_messages.uniq
+			erb :'/users/failure'
 		end
 	end
 
@@ -33,7 +35,6 @@ class UsersController < ApplicationController
 	end
 
 	get "/failure" do
-		# user.errors.full_messages_for(:user_login)
 		erb :'/users/failure'
 	end
 
