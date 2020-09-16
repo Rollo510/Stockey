@@ -8,7 +8,7 @@ get '/owned_stocks' do
 post '/owned_stocks/new' do
     @new_owned_stock = Stock.create(params)
     owned_stock = OwnedStock.create(user_id:current_user.id, stock_id:@new_owned_stock.id)
-    erb :'/owned_stocks/show'
+    erb :'/owned_stocks/new_owned_stock'
 end
 
 # get '/owned_stocks/show' do
@@ -24,11 +24,14 @@ end
 
   
 
-  # get '/owned_stocks/:id' do
-  #   id = params[:id]
-  #   @owned_stock = OwnedStock.find_by(id: id)
-  #   erb :owned_stock_show
-  # end
+  get '/owned_stocks/:id' do
+    if logged_in?
+    @owned_stock = OwnedStock.find_by(id: params[:id])
+    erb :'owned_stocks/show'
+    else
+      redirect to '/failure'
+    end
+  end
 
   get '/owned_stocks/:id/edit' do
     @owned_stock = OwnedStock.find_by(id: params[:id])
@@ -54,12 +57,6 @@ end
     current_user.reload
     redirect to '/stocks'
   end
-
-  # <h1> Add this stock to your portfolio!</h1>
-
-  # <form method="post" action="/owned_stocks/:stock_id"
-  # <input type="submit" 
-
   
 
 end

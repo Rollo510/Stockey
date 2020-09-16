@@ -2,6 +2,7 @@
 
 <h2> <%=current_user.username.capitalize%>'s Stocks:</h2>
 <br>
+<h3> Click on a stock to edit or delete it </h3>
 
     <% if current_user.owned_stocks.empty? %>
     <h3> <%="Looks like you havent added any stocks yet..."%> </h3>
@@ -9,9 +10,12 @@
 <br>
 <li>
     <li> <% @owned_stocks.each do |owned_stock| %>
-<li>Name:<h3><%=owned_stock.stock.name%></h3></li>
+<li>Name:<h3><a href='/owned_stocks/<%=owned_stock.id%>'><%=owned_stock.stock.name%></h3></a></li>
 <li><%=owned_stock.stock.ticker_symbol%></li>
 <li>Current Price: $<%=owned_stock.stock.price%></li>
+
+
+
 <br>
 <br>
 <% end %> </li>

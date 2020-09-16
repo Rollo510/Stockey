@@ -1,13 +1,8 @@
-<h1> You just added: </h1><br>
+<h1> <%= @owned_stock.stock.name.upcase %> <h4><%=@owned_stock.stock.ticker_symbol%></h4> </h1> 
+<p>
+<h3>Here's some information on <%=@owned_stock.stock.name%>: </h3>
+</p>
+<%=@owned_stock.stock.name%> belongs to the <a href=      ><%=@owned_stock.stock.category%></a> category.<br>
+<%=@owned_stock.stock.name%>'s current price is: $<%=@owned_stock.stock.price%>
 <br>
-<h3> <%=@new_owned_stock.name.upcase%> <h4> <%=@new_owned_stock.ticker_symbol%> </h4> </h3> 
-
 <br>
-This stock belongs to the <%=@new_owned_stock.category%> category, and has a current price of <%=@new_owned_stock.price%>. <br>
-<br>
-<a href='/stocks'>Back to Main Menu</a>
-<br>
-<a href="/logout">Logout</a>
-
-
-
