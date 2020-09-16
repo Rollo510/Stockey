@@ -15,7 +15,7 @@ class UsersController < ApplicationController
 
 	post "/users/signup" do
 		user = User.new(username:params[:username], email:params[:email], password:params[:password])
-		if user.valid? && user.save
+		if user.valid? && user.new_record? && user.save
 			session[:user_id] = user.id
 			redirect to '/stocks'
 		else
