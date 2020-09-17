@@ -1,0 +1,26 @@
+<h1>What would you like to do with <%=@owned_stock.stock.name%>?</h1>
+<br>
+<br>
+<form action='/owned_stocks/<%= @owned_stock.id %>' method='post'>
+<input id='hidden' type='hidden' name='_method' value='PATCH'>
+<p>Company Name: <input type="text" id="name" name="name" placeholder="Change your company's name"></p>
+<p>Ticker: <input type="text" id="ticker_symbol" name="ticker_symbol" placeholder="Change the company's ticker symbol"></p>
+<p>Category: <input type="text" id="category" name="category" placeholder="Update the sector of market"></p>
+<p>Current Price: $<input type="number" min="0" step=".01" id="price" name="price" placeholder="New current price per share">
+<input type="submit" value="Edit this stock">
+</form><br>
+
+<br>
+<br>
+
+
+
+
+<form action='/owned_stocks/<%= @owned_stock.id %>/delete' method='post'>
+<input type='hidden' id='hidden' name='_method' value="DELETE">
+<input type='submit' value='Delete this stock from your list'>
+</form>
+<br>
+<a href='/stocks'>Back to Main Menu</a><br>
+<br>
+<a href="/logout">Logout</a>

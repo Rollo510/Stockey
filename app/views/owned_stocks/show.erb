@@ -2,18 +2,18 @@
 <p>
 <h3>Here's some information on <%=@owned_stock.stock.name%>: </h3>
 </p>
-<%=@owned_stock.stock.name%> belongs to the <a href=      ><%=@owned_stock.stock.category%></a> category.<br>
+<%=@owned_stock.stock.name%> belongs to the <%=@owned_stock.stock.category%> category.<br>
 <%=@owned_stock.stock.name%>'s current price is: $<%=@owned_stock.stock.price%>
 <br>
 <br>
 
+<a href='/owned_stocks/<%=@owned_stock.id%>/edit'>Make Changes to this Stock!</a>
 
-
-<form action='/owned_stocks/<%= @owned_stock.id %>/delete' method='post'>
-<input type='hidden' id='hidden' name='_method' value="DELETE">
-<button type='submit'>Delete this stock from your list</button>
-</form>
-
+<br>
+<br>
+<a href='/stocks'>Back to Main Menu</a><br>
+<br>
+<a href="/logout">Logout</a>
 
 
 
