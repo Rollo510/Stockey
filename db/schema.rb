@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200911205145) do
+ActiveRecord::Schema.define(version: 20200919031925) do
 
   create_table "owned_stocks", force: :cascade do |t|
     t.integer  "user_id"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20200911205145) do
     t.float    "price"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.boolean  "allow_edit"
   end
 
   create_table "users", force: :cascade do |t|

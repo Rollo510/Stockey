@@ -2,10 +2,10 @@
 
 <h2> <%=current_user.username.capitalize%>'s Stocks:</h2>
 <br>
-<h3> Click on a stock to edit or delete it </h3>
+<h3> Click on a stock to edit or delete it </h3><br>
 
     <% if current_user.owned_stocks.empty? %>
-    <h3> <%="Looks like you havent added any stocks yet..."%> </h3>
+    <h2> <%="Looks like you havent added any stocks yet..."%> </h2>
     <% end %>
 <br>
 <li>

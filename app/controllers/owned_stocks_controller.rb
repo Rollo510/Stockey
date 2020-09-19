@@ -6,6 +6,7 @@ class OwnedStocksController < ApplicationController
     end
 
   post '/owned_stocks/new' do
+      params[:allow_edit] = true
       @new_owned_stock = Stock.create(params)
       owned_stock = OwnedStock.create(user_id:current_user.id, stock_id:@new_owned_stock.id)
       erb :'/owned_stocks/new_owned_stock'
@@ -14,7 +15,8 @@ class OwnedStocksController < ApplicationController
   get '/owned_stocks/:id/edit' do
     if logged_in?
       @owned_stock = OwnedStock.find(params[:id])
-      if @owned_stock.user_id == current_user.id
+      @stock = Stock.find(@owned_stock.stock_id)
+      if @owned_stock.user_id == current_user.id && @stock.allow_edit == true
         erb :'owned_stocks/edit'
       else
         redirect to '/failure'
