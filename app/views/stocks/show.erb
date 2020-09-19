@@ -3,13 +3,16 @@
 <h3>Here's some information on <%=@stock.name%>: </h3>
 </p>
 <%=@stock.name%> belongs to the <%=@stock.category%> category<br>
-<%=@stock.name%>'s current price is: $<%=@stock.price%>
+<%=@stock.name%>'s current price is: $<%=@stock.price%><br>
 <br>
 <br>
 
 
-
-
+<form method='post' action='/stocks/<%=@stock.id%>/add_new_stock'><br>
+<label for='stocks'>
+<input type='submit' value='Add this stock to my list'>
+</form><br>
+<br>
 
 
 <a href='/stocks'>Back to Main Menu</a><br>

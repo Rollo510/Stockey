@@ -3,17 +3,15 @@
 <br>
 <form action='/owned_stocks/<%= @owned_stock.id %>' method='post'>
 <input id='hidden' type='hidden' name='_method' value='PATCH'>
-<p>Company Name: <input type="text" id="name" name="name" placeholder="Change your company's name"></p>
-<p>Ticker: <input type="text" id="ticker_symbol" name="ticker_symbol" placeholder="Change the company's ticker symbol"></p>
-<p>Category: <input type="text" id="category" name="category" placeholder="Update the sector of market"></p>
-<p>Current Price: $<input type="number" min="0" step=".01" id="price" name="price" placeholder="New current price per share">
+<p>Company Name: <input type="text" id="name" name="name" placeholder="Change company name"></p>
+<p>Ticker: <input type="text" id="ticker_symbol" name="ticker_symbol" placeholder="Change ticker symbol"></p>
+<p>Category: <input type="text" id="category" name="category" placeholder="Update market category"></p>
+<p>Current Price: $<input type="number" min="0" step=".01" id="price" name="price" placeholder="New price">
 <input type="submit" value="Edit this stock">
 </form><br>
 
 <br>
 <br>
-
-
 
 
 <form action='/owned_stocks/<%= @owned_stock.id %>/delete' method='post'>

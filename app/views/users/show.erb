@@ -9,6 +9,7 @@
     <% end %>
 <br>
 <li>
+    
     <li> <% @owned_stocks.each do |owned_stock| %>
 <li>Name:<h3><a href='/owned_stocks/<%=owned_stock.id%>'><%=owned_stock.stock.name%></h3></a></li>
 <li><%=owned_stock.stock.ticker_symbol%></li>
