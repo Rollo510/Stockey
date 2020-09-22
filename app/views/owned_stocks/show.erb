@@ -7,7 +7,13 @@
 <br>
 <br>
 
-<a href='/owned_stocks/<%=@owned_stock.id%>/edit'>Make Changes to this Stock!</a>
+<a href='/owned_stocks/<%=@owned_stock.id%>/edit'>Make Changes to this Stock!</a><br>
+<br>
+
+<form action='/owned_stocks/<%= @owned_stock.id %>/delete' method='post'>
+<input type='hidden' id='hidden' name='_method' value="DELETE">
+<input type='submit' value='Remove this stock from my list'>
+</form>
 
 <br>
 <br>
